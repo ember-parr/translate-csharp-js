@@ -19,15 +19,31 @@ namespace Insulter
                 "Do you have to be so... like that?"
             };
 
+
+            List<int> indexes = new List<int>();
+
+            while (indexes.Count < 3)
+            {
+                int candidate = getRandomInt(0, insults.Length);
+                if (indexes.Contains(candidate) == false)
+                {
+                    indexes.Add(candidate);
+                }
+            }
+
             for (int i = 0; i < 3; i++)
             {
-                int whichInsult = new Random().Next(1, 7);
-                string message = insults[whichInsult];
-                Console.WriteLine(message);
+                int index = indexes[i];
+                Console.WriteLine(insults[index]);
             }
 
 
+        }
 
+
+        static int getRandomInt(int min, int max)
+        {
+            int randomValue = new Random().Next(min, max);
         }
 
 
