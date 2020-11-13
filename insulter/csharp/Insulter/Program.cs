@@ -9,7 +9,7 @@ namespace Insulter
         {
             Console.WriteLine("Hello World!");
 
-            List<string> insults = new List<string> {
+            string[] insults = new string[] {
                 "You look like what morning breath smells like.",
                 "If you tried to give me cpr I would probably throw myself back under water",
                 "I am not a fan of you",
@@ -18,6 +18,16 @@ namespace Insulter
                 "If I were given a million dollars to hang out with you...I would, but then I'd have to spend half of it on therapy",
                 "Do you have to be so... like that?"
             };
+
+            // List<string> insults = new List<string> {
+            //     "You look like what morning breath smells like.",
+            //     "If you tried to give me cpr I would probably throw myself back under water",
+            //     "I am not a fan of you",
+            //     "You think you're so special...and you are. The fact of your existence is nearly impossible to believe",
+            //     "I'd rather walk than be on the same plane as you",
+            //     "If I were given a million dollars to hang out with you...I would, but then I'd have to spend half of it on therapy",
+            //     "Do you have to be so... like that?"
+            // };
 
 
             List<int> indexes = new List<int>();
@@ -44,6 +54,7 @@ namespace Insulter
         static int getRandomInt(int min, int max)
         {
             int randomValue = new Random().Next(min, max);
+            return randomValue;
         }
 
 
