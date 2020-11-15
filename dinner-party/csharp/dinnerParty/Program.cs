@@ -68,9 +68,17 @@ namespace dinnerParty
     }
 
 
-    public class Guest{
+    public class Guest
+    {
         public string name { get; set; }
         public string occupation { get; set; }
         public string bio { get; set; }
+    }
+
+
+    public class Table
+    {
+        public string Name { get; set; }
+        public List<Guest> TableOfGuests { get; set; }
     }
 }
