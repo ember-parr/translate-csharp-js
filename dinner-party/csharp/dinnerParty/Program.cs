@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace dinnerParty
 {
@@ -7,17 +8,56 @@ namespace dinnerParty
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            List<Guest> guests = GetGuests();
+            List<Guest> dinnerGuests = GetGuests();
+            List<Table> tables = new List<Table>() {
+                new Table() {
+                    Name= "Table 1",
+                    TableOfGuests= new List<Guest> {}
+                },
+                new Table() {
+                    Name= "Table 2",
+                    TableOfGuests= new List<Guest> {}
+                }
+            };
 
-            foreach (Guest dinnerGuest in guests)
+
+            foreach (Guest guest in dinnerGuests)
             {
-                Console.WriteLine($"{dinnerGuest.name}");
+                List<string> table1Occupations = tables[0].TableOfGuests.Select(g => g.occupation).ToList();
+                if (table1Occupations.Contains(guest.occupation))
+                {
+                    tables[1].TableOfGuests.Add(guest);
+                }
+                else
+                {
+                    tables[0].TableOfGuests.Add(guest);
+                }
             }
+
+            foreach (Table singleTable in tables) 
+            {
+                Console.WriteLine($"{singleTable.Name}");
+                foreach (Guest singleGuest in singleTable.TableOfGuests)
+                {
+                    Console.WriteLine($"{singleGuest.name}");
+                }
+            }
+
+
+            // foreach (string job in jobs) 
+            // {
+            // Console.WriteLine($"table: {job}");
+            // }
+            // foreach (Guest dinnerGuest in guests);
+            // {
+                
+            //     Console.WriteLine($"{dinnerGuest.name}");
+            //     Console.WriteLine($"table: {table}");
+            // }
         }
 
 
-        public static List<Guest> GetGuests()
+        static List<Guest> GetGuests()
         {
             List<Guest> guests = new List<Guest> {
                 new Guest {
