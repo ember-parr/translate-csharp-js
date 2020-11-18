@@ -7,7 +7,7 @@ namespace Insulter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
 
             string[] insults = new string[] {
                 "You look like what morning breath smells like.",
